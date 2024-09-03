@@ -1,17 +1,17 @@
-# About
+## About
 
 Template FastAPI x Postgres
 
-# Usage
+## Usage
 
-## Build API Server Image
+### Build API Server Image
 
 ```sh
 cd api_server
 docker build -t fastapi_server .
 ```
 
-## Docker Compose Up
+### Docker Compose Up
 
 ```sh
 # ensure .env is set before running the following command.
