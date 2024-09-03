@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  db_server_service:
+    image: postgres:14.8
+    container_name: db_server_container
+    ports:
+      - "${DB_SERVER_PORT}:5432"
+    env_file:
+      - ./db_server/.env
+    volumes:
+      - ./db_server/data:/var/lib/postgresql/data
+
+  api_server_service:
+    image: fastapi_server
+    container_name: api_server_container
+    ports:
+      - "${API_SERVER_PORT}:8000"
+    volumes:
+      - ./api_server:/work
+    command: ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8000"]
