@@ -1,7 +1,7 @@
 import httpx
 
 # APIのベースURL
-BASE_URL = "http://localhost:18000"  # FastAPIサーバーのアドレスに応じて変更してください
+BASE_URL = "http://localhost:18000"
 
 
 # ユーザー作成
