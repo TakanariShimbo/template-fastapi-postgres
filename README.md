@@ -2,6 +2,8 @@
 
 Template FastAPI x Postgres
 
+ref: https://fastapi.tiangolo.com/tutorial/sql-databases/#technical-details-about-orm-mode
+
 ## Usage
 
 ### Build API Server Image
