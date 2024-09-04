@@ -10,6 +10,11 @@ services:
       - ./db_server/.env
     volumes:
       - ./db_server/data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   api_server_service:
     image: fastapi_server
@@ -20,4 +25,7 @@ services:
       - ./api_server/.env
     volumes:
       - ./api_server:/work
+    depends_on:
+      db_server_service:
+        condition: service_healthy
     command: ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8000"]
